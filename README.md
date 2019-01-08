@@ -29,7 +29,7 @@ Add following repository and dependency to your project's POM
 <repository>
     <id>groupdocs-artifact-repository</id>
     <name>GroupDocs Artifact Repository</name>
-    <url>http://artifact.groupdocs.cloud/repo</url>
+    <url>https://repository.groupdocs.cloud/repo</url>
 </repository>
 ```
 
@@ -37,7 +37,7 @@ Add following repository and dependency to your project's POM
 <dependency>
     <groupId>com.groupdocs</groupId>
     <artifactId>groupdocs-comparison-cloud</artifactId>
-    <version>18.4</version>
+    <version>18.9</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/groupdocs-comparison-cloud-18.4.jar
+* target/groupdocs-comparison-cloud-18.9.jar
 * target/lib/*.jar
 
 ## Getting Started
