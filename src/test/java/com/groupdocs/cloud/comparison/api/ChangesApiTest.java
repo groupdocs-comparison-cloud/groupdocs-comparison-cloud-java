@@ -44,7 +44,7 @@ import java.util.List;
 /**
  * API tests for ChangesApi
  */
-@Ignore
+
 public class ChangesApiTest extends TestsSetter {
 
 
@@ -60,6 +60,7 @@ public class ChangesApiTest extends TestsSetter {
                 targetName = "target.docx";
         PostCategoriesChangesRequest request = new PostCategoriesChangesRequest();
         request.setRequest(GetComparisonRequest(sourceName, targetName));
+        request.setCategoriesType("ByNodeType");
         List<ComparisonChangesCategoryDto> response = changesApi.postCategoriesChanges(request);
         for (ComparisonChangesCategoryDto comparisonChangesCategoryDto : response) {
             Assert.assertNotNull(comparisonChangesCategoryDto);

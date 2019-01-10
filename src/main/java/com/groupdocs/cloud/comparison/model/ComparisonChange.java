@@ -45,22 +45,22 @@ import java.util.List;
  */
 @ApiModel(description = "ComparisonChange dto")
 public class ComparisonChange {
-  @SerializedName("Id")
+  @SerializedName("id")
   private Integer id = null;
 
-  @SerializedName("Type")
+  @SerializedName("type")
   private String type = null;
 
-  @SerializedName("Text")
+  @SerializedName("text")
   private String text = null;
 
-  @SerializedName("Authors")
+  @SerializedName("authors")
   private List<String> authors = null;
 
-  @SerializedName("Action")
+  @SerializedName("action")
   private String action = null;
 
-  @SerializedName("StyleChanges")
+  @SerializedName("styleChanges")
   private List<ComparisonStyleChange> styleChanges = null;
 
   public ComparisonChange id(Integer id) {

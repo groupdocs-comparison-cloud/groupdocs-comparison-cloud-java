@@ -43,7 +43,7 @@ import java.util.List;
 /**
  * API tests for ComparisonApi
  */
-@Ignore
+
 public class ComparisonApiTest extends TestsSetter {
 
     /**
