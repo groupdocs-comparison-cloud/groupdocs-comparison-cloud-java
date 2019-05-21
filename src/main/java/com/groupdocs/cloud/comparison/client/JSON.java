@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="JSON.java">
- *   Copyright (c) 2003-2018 Aspose Pty Ltd
+ *   Copyright (c) 2003-2019 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -174,6 +174,9 @@ public class JSON {
                     if (date.endsWith("+0000")) {
                         date = date.substring(0, date.length()-5) + "Z";
                     }
+                    if (date.length() == 19) {
+                        date = date + "Z";
+                    }                      
                     return OffsetDateTime.parse(date, formatter);
             }
         }

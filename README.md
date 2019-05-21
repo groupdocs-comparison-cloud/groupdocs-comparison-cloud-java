@@ -7,7 +7,7 @@ Building the API client library requires [Maven](https://maven.apache.org/) to b
 
 ## Installation
 
-To install the API client library to your local Maven repository, simply execute:
+To install the API client library to your local Maven repository, execute:
 
 ```shell
 mvn install
@@ -37,7 +37,7 @@ Add following repository and dependency to your project's POM
 <dependency>
     <groupId>com.groupdocs</groupId>
     <artifactId>groupdocs-comparison-cloud</artifactId>
-    <version>18.9</version>
+    <version>19.5</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/groupdocs-comparison-cloud-18.9.jar
+* target/groupdocs-comparison-cloud-19.5.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -58,34 +58,34 @@ Then manually install the following JARs:
 Please follow the [installation](#installation) instruction and execute the following Java code:
 
 ```java
-
 import com.groupdocs.cloud.comparison.client.*;
 import com.groupdocs.cloud.comparison.model.*;
-import com.groupdocs.cloud.comparison.api.ChangesApi;
+import com.groupdocs.cloud.comparison.api.ComparisonApi;
 
-import java.io.File;
 import java.util.*;
 
-public class ChangesApiExample {
+public class ApiExample {
 
     public static void main(String[] args) {
         //TODO: Get your AppSID and AppKey at https://dashboard.groupdocs.cloud (free registration is required).
         String appSid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";
         String appKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 
-        ChangesApi apiInstance = new ChangesApi(appSid, appKey);
-        ComparisonRequest request = new ComparisonRequest(); // ComparisonRequest | The request.
-        String categoriesType = "categoriesType_example"; // String | Type of the categories.
+        Configuration configuration = new Configuration(appSid, appKey);
+        
+        InfoApi infoApi = new InfoApi(configuration);
+
         try {
-            List<ComparisonChangesCategoryDto> result = apiInstance.postCategoriesChanges(request, categoriesType);
-            System.out.println(result);
+            FormatsResult response = infoApi.getSupportedFileFormats();
+            for (Format format : response.getFormats()) {
+                System.out.println(format.getFileFormat());
+            }
         } catch (ApiException e) {
-            System.err.println("Exception when calling ChangesApi#postCategoriesChanges");
+            System.err.println("Failed to get supported file formats");
             e.printStackTrace();
         }
     }
 }
-
 ```
 
 ## Licensing

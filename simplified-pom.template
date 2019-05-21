@@ -8,8 +8,8 @@
     <version>{VERSION}</version>
     <packaging>jar</packaging>
 
-    <name>groupdocs-annotation-cloud</name>
-    <description>Java library for communicating with the GroupDocs.Comparison Cloud API</description>
+    <name>groupdocs-comparison-cloud</name>
+    <description>Java library for communicating with the GroupDocs.comparison Cloud API</description>
     <url>https://github.com/groupdocs-comparison-cloud/groupdocs-comparison-cloud-java</url>
 
     <licenses>
@@ -32,7 +32,7 @@
         <repository>
             <id>maven.aspose.cloud</id>
             <name>maven.aspose.cloud</name>
-            <url>http://artifact.aspose.cloud/repo/</url>
+            <url>https://repository.aspose.cloud/repo/</url>
         </repository>
     </repositories>
         

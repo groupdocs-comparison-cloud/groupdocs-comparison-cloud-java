@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="PostChangesRequest.java">
- *   Copyright (c) 2003-2018 Aspose Pty Ltd
+ *   Copyright (c) 2003-2019 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -10,10 +10,10 @@
  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  *  copies of the Software, and to permit persons to whom the Software is
  *  furnished to do so, subject to the following conditions:
- *
+ * 
  *  The above copyright notice and this permission notice shall be included in all
  *  copies or substantial portions of the Software.
- *
+ * 
  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -24,71 +24,95 @@
  * </summary>
  * --------------------------------------------------------------------------------------------------------------------
  */
+
 package com.groupdocs.cloud.comparison.model.requests;
 
 import java.util.Objects;
-
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.groupdocs.cloud.comparison.model.ComparisonRequest;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import com.groupdocs.cloud.comparison.model.*;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.io.File;
 
 /**
  * Request model for postChanges method.
  */
-
 public class PostChangesRequest {
-    @SerializedName("request")
-    private com.groupdocs.cloud.comparison.model.ComparisonRequest request = null;
-
+    
     /**
-     * The request.
-     * @return The request.
-     **/
-    @ApiModelProperty(example = "new ComparisonRequest()", value = "The request.")
-    public com.groupdocs.cloud.comparison.model.ComparisonRequest getRequest() {
-        return request;
-    }
-
-    public void setRequest(com.groupdocs.cloud.comparison.model.ComparisonRequest request) {
-        this.request = request;
-    }
-
-    @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
-            return true;
-        }
-
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        PostChangesRequest request = (PostChangesRequest) o;
-        return Objects.equals(this.request, request.request);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(request);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class PostChanges {\n");
-        sb.append("    request: ").append(toIndentedString(request)).append("\n");
-        sb.append("}");
-        return sb.toString();
+    * Initializes a new instance of the PostChangesRequest class.
+    */      
+    public PostChangesRequest()
+    {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+    * Initializes a new instance of the PostChangesRequest class.    
+    * @param comparisonOptions Comparison options
+    */
+    public PostChangesRequest(Options comparisonOptions)
+    {
+        this.comparisonOptions = comparisonOptions;
     }
+
+  @SerializedName("comparisonOptions")
+  private Options comparisonOptions = null;
+
+  /**
+   * Comparison options
+   * @return Comparison options
+  **/
+  @ApiModelProperty(example = "new Options()", required = true, value = "Comparison options")
+  public Options getcomparisonOptions() {
+    return comparisonOptions;
+  }
+
+  public void setcomparisonOptions(Options comparisonOptions) {
+    this.comparisonOptions = comparisonOptions;
+  }
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    
+    PostChangesRequest request = (PostChangesRequest) o;
+    return Objects.equals(this.comparisonOptions, request.comparisonOptions);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(comparisonOptions);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class PostChanges {\n");
+    sb.append("    comparisonOptions: ").append(toIndentedString(comparisonOptions)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
+
