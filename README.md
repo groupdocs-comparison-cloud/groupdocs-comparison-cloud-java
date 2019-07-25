@@ -60,7 +60,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```java
 import com.groupdocs.cloud.comparison.client.*;
 import com.groupdocs.cloud.comparison.model.*;
-import com.groupdocs.cloud.comparison.api.ComparisonApi;
+import com.groupdocs.cloud.comparison.api.CompareApi;
 
 import java.util.*;
 
