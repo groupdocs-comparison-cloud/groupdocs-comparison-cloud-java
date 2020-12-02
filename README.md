@@ -37,7 +37,7 @@ Add following repository and dependency to your project's POM
 <dependency>
     <groupId>com.groupdocs</groupId>
     <artifactId>groupdocs-comparison-cloud</artifactId>
-    <version>20.5</version>
+    <version>20.12</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/groupdocs-comparison-cloud-20.5.jar
+* target/groupdocs-comparison-cloud-20.12.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -91,4 +91,12 @@ public class ApiExample {
 ## Licensing
 All GroupDocs.Comparison Cloud SDKs are licensed under [MIT License](LICENSE).
 
-[Home](https://www.groupdocs.cloud/) | [Product Page](https://products.groupdocs.cloud/comparison/java) | [Docs](https://docs.groupdocs.cloud/comparison/) | [Demos](https://products.groupdocs.app/comparison/family) | [API Reference](https://apireference.groupdocs.cloud/comparison/) | [Examples](https://github.com/groupdocs-comparison-cloud/groupdocs-comparison-cloud-java-samples) | [Blog](https://blog.groupdocs.cloud/category/comparison/) | [Free Support](https://forum.groupdocs.cloud/c/comparison) | [Free Trial](https://purchase.groupdocs.cloud/trial)
+## Resources
++ [**Website**](https://www.groupdocs.cloud)
++ [**Product Home**](https://products.groupdocs.cloud/comparison)
++ [**Documentation**](https://docs.groupdocs.cloud/comparison)
++ [**Free Support Forum**](https://forum.groupdocs.cloud/c/comparison)
++ [**Blog**](https://blog.groupdocs.cloud/category/comparison)
+
+## Contact Us
+Your feedback is very important to us. Please feel free to contact us using our [Support Forums](https://forum.groupdocs.cloud/c/comparison).
