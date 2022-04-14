@@ -24,7 +24,7 @@ Add following repository and dependency to your project's POM
 <dependency>
     <groupId>com.groupdocs</groupId>
     <artifactId>groupdocs-comparison-cloud</artifactId>
-    <version>21.7</version>
+    <version>22.4</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -43,7 +43,7 @@ repositories {
 ...
 dependencies {
     ...
-    implementation 'com.groupdocs:groupdocs-comparison-cloud:21.7'
+    implementation 'com.groupdocs:groupdocs-comparison-cloud:22.4'
 }
 ```
 
@@ -100,7 +100,7 @@ mvn package -D maven.test.skip=true
 
 Then manually install the following JARs:
 
-* target/groupdocs-comparison-cloud-21.7.jar
+* target/groupdocs-comparison-cloud-22.4.jar
 * target/lib/*.jar
 
 ## Licensing
