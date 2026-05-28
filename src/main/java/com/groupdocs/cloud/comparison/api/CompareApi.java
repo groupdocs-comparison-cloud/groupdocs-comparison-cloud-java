@@ -78,6 +78,10 @@ public class CompareApi {
         this.apiClient = apiClient;
     }
 
+    // ---------------------------------------------------------------------
+    // Existing methods (comparisons, postChanges, putChangesDocument) ...
+    // ---------------------------------------------------------------------
+
     /**
      * Build call for comparisons
      * @param request The request model
@@ -444,5 +448,192 @@ public class CompareApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
+    // ---------------------------------------------------------------------
+    // New PutChanges (multipart/form-data) implementation
+    // ---------------------------------------------------------------------
+
+    /**
+     * Build call for putChanges
+     * @param request The request model
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call putChangesCall(PutChangesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null; // multipart/form-data does not use a raw body
+
+        // create path and map variables
+        String localVarPath = "/comparison/changes";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        // form parameters
+        if (request.getsourceFile() != null) {
+            localVarFormParams.put("sourceFile", request.getsourceFile());
+        }
+        if (request.gettargetFiles() != null) {
+            localVarFormParams.put("targetFiles", request.gettargetFiles());
+        }
+        if (request.getsettings() != null) {
+            localVarFormParams.put("settings", request.getsettings());
+        }
+        if (request.getchangeType() != null) {
+            localVarFormParams.put("changeType", request.getchangeType());
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                        .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                        .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call putChangesValidateBeforeCall(PutChangesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify required parameters
+        if (request.getsourceFile() == null) {
+            throw new ApiException("Missing the required parameter 'sourceFile' when calling putChanges");
+        }
+        if (request.gettargetFiles() == null) {
+            throw new ApiException("Missing the required parameter 'targetFiles' when calling putChanges");
+        }
+        return putChangesCall(request, progressListener, progressRequestListener);
+    }
+
+    /**
+     * Retrieves a list of changes between source and target documents supplied directly in the request body as multipart/form-data.
+     * 
+     * @param request The request model
+     * @return List&lt;ChangeInfo&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ChangeInfo> putChanges(PutChangesRequest request) throws ApiException {
+        ApiResponse<List<ChangeInfo>> resp = putChangesWithHttpInfo(request);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieves a list of changes between source and target documents supplied directly in the request body as multipart/form-data.
+     * 
+     * @param request The request model
+     * @return ApiResponse&lt;List&lt;ChangeInfo&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ChangeInfo>> putChangesWithHttpInfo(PutChangesRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = putChangesValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<List<ChangeInfo>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieves a list of changes between source and target documents supplied directly in the request body as multipart/form-data (asynchronously).
+     * 
+     * @param request The request model
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call putChangesAsync(PutChangesRequest request, final ApiCallback<List<ChangeInfo>> callback) throws ApiException {
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = putChangesValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<ChangeInfo>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
 }
 
+/**
+ * Request model for PutChanges operation.
+ */
+class PutChangesRequest {
+    private File sourceFile;
+    private List<File> targetFiles;
+    private String settings;
+    private String changeType;
+
+    public PutChangesRequest() {
+    }
+
+    public PutChangesRequest(File sourceFile, List<File> targetFiles) {
+        this.sourceFile = sourceFile;
+        this.targetFiles = targetFiles;
+    }
+
+    public File getsourceFile() {
+        return sourceFile;
+    }
+
+    public void setsourceFile(File sourceFile) {
+        this.sourceFile = sourceFile;
+    }
+
+    public List<File> gettargetFiles() {
+        return targetFiles;
+    }
+
+    public void settargetFiles(List<File> targetFiles) {
+        this.targetFiles = targetFiles;
+    }
+
+    public String getsettings() {
+        return settings;
+    }
+
+    public void setsettings(String settings) {
+        this.settings = settings;
+    }
+
+    public String getchangeType() {
+        return changeType;
+    }
+
+    public void setchangeType(String changeType) {
+        this.changeType = changeType;
+    }
+}

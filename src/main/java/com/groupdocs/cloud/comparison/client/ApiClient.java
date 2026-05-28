@@ -97,7 +97,7 @@ public class ApiClient {
         this.json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("java-sdk/25.11");
+        setUserAgent("java-sdk/26.5");
 
         // Set connection timeout
         setConnectTimeout(configuration.getTimeout());
@@ -1095,9 +1095,21 @@ public class ApiClient {
         for (Entry<String, Object> param : formParams.entrySet()) {
             if (param.getValue() instanceof File) {
                 File file = (File) param.getValue();
-                Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"; filename=\"" + param.getKey() + "\"");
+                Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"; filename=\"" + file.getName() + "\"");
                 MediaType mediaType = MediaType.parse(guessContentTypeFromFile(file));
                 mpBuilder.addPart(partHeaders, RequestBody.create(mediaType, file));
+            } else if (param.getValue() instanceof List) {
+                for (Object item : (List<?>) param.getValue()) {
+                    if (item instanceof File) {
+                        File file = (File) item;
+                        Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"; filename=\"" + file.getName() + "\"");
+                        MediaType mediaType = MediaType.parse(guessContentTypeFromFile(file));
+                        mpBuilder.addPart(partHeaders, RequestBody.create(mediaType, file));
+                    } else {
+                        Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"");
+                        mpBuilder.addPart(partHeaders, RequestBody.create(null, parameterToString(item)));
+                    }
+                }
             } else {
                 Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"");
                 mpBuilder.addPart(partHeaders, RequestBody.create(null, parameterToString(param.getValue())));
