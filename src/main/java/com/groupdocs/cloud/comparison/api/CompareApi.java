@@ -27,7 +27,6 @@
 
 package com.groupdocs.cloud.comparison.api;
 
-import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -585,55 +584,5 @@ public class CompareApi {
         Type localVarReturnType = new TypeToken<List<ChangeInfo>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
-    }
-}
-
-/**
- * Request model for PutChanges operation.
- */
-class PutChangesRequest {
-    private File sourceFile;
-    private List<File> targetFiles;
-    private String settings;
-    private String changeType;
-
-    public PutChangesRequest() {
-    }
-
-    public PutChangesRequest(File sourceFile, List<File> targetFiles) {
-        this.sourceFile = sourceFile;
-        this.targetFiles = targetFiles;
-    }
-
-    public File getsourceFile() {
-        return sourceFile;
-    }
-
-    public void setsourceFile(File sourceFile) {
-        this.sourceFile = sourceFile;
-    }
-
-    public List<File> gettargetFiles() {
-        return targetFiles;
-    }
-
-    public void settargetFiles(List<File> targetFiles) {
-        this.targetFiles = targetFiles;
-    }
-
-    public String getsettings() {
-        return settings;
-    }
-
-    public void setsettings(String settings) {
-        this.settings = settings;
-    }
-
-    public String getchangeType() {
-        return changeType;
-    }
-
-    public void setchangeType(String changeType) {
-        this.changeType = changeType;
     }
 }

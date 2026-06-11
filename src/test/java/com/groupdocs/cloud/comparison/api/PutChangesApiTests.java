@@ -28,6 +28,7 @@ package com.groupdocs.cloud.comparison.api;
 
 import com.groupdocs.cloud.comparison.client.ApiException;
 import com.groupdocs.cloud.comparison.model.ChangeInfo;
+import com.groupdocs.cloud.comparison.model.requests.PutChangesRequest;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
